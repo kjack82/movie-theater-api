@@ -1,7 +1,7 @@
 const express = require("express")
 
 const router = express.Router()
-const { check, validationResult } = require("express-validator")
+
 
 //GET all users
 router.get('/', async function (req, res) {
@@ -20,6 +20,8 @@ router.get('/:userId', async function (req, res) {
 })
 
 router.get('/:userId/shows', async function (req, res) {
+    const user = await User.findByPk(req.params.userId)
+    
     //get all shows watched by a user
 })
 
